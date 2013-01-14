@@ -9,9 +9,9 @@ package
 	 * Starting point of the game application
 	 * @author 
 	 */
-	public class Platformer extends FlxGame
+	public class AITH extends FlxGame
 	{
-		public function Platformer()
+		public function AITH()
 		{
 			//Function to call to create the game at a specified screen size and display the first state (MenuState)
 			super(800, 600, Menu);

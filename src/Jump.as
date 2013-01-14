@@ -18,14 +18,14 @@ package
 		public function Jump(x:int, y:int, index:int, init:int) 
 		{
 			super(x, y, reg.assets[index - 1]);
-			pathnodes.push(new FlxPoint(x+120, y));
+		/*	pathnodes.push(new FlxPoint(x+120, y));
 			pathnodes.push(new FlxPoint(x+310, y));
 			pathnodes.push(new FlxPoint(x+420, y+40));
 			my_path = new FlxPath(pathnodes);
-			trace(pathnodes, my_path);
+			trace(pathnodes, my_path);*/
 			elasticity = 1;
 			immovable = true;
-			velocity.x = init;
+			//velocity.x = init;
 		}
 		
 	}

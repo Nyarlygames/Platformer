@@ -27,28 +27,6 @@ package
 			if (FlxG.keys.pressed("ESCAPE")) {
 				System.exit(0);
 			}
-			if (FlxG.keys.pressed("UP")) {
-				for each (var item:FlxSprite in play.map.ens.members)
-					item.velocity.x = -75;
-				//play.player.acceleration.x = -30;
-				FlxScrollZone.updateX(play.background, -1);
-			}
-			if (FlxG.keys.pressed("DOWN")) {
-				for each (var item2:FlxSprite in play.map.ens.members)
-					item2.velocity.x = -50;
-				//play.player.acceleration.x = +30;
-				FlxScrollZone.updateX(play.background, -3);
-				//play.player.acceleration.y = 50;
-			}
-			/*if ((FlxG.keys.pressed("SHIFT")) && (play.player.y + play.player.frameHeight == play.background.y)) {
-				jump = new FlxDelay(1000);
-				jump.start();
-				play.player.acceleration.y = -50;
-			}*/
-			/*if ((jump != null) && (jump.hasExpired == true)) {
-				play.player.acceleration.y = 50;
-				jump = null;
-			}*/
 		}
 		
 	}

@@ -10,7 +10,7 @@ package
 	{
 		public function Preloader()
 		{
-			className = "Platformer";
+			className = "AITH";
 			super();
 		}
 	}

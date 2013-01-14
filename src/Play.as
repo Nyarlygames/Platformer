@@ -35,33 +35,26 @@ package
 			map = lvl;
 			add(background);
 			player = new Player(50,FlxG.height - (FlxG.height - background.sol.y) - background.sol.frameHeight);
-			//for each (var item:FlxSprite in map.ens.members) {
-			//	if (item != null){
-			//		item.y = background.sol.y - item.frameHeight;
-			//	}
-			//}
+			for each (var item:FlxSprite in map.ens.members) {
+				if (item != null){
+					item.y = background.sol.y - item.frameHeight;
+				}
+			}
 			//add(map.ens);
-			//add(map.obs);
+			add(map.obs);
 			add(player);
 		}
 		
 		override public function update():void {
 			super.update();
-			 
-			if (player.pos == 700) {
-				for each (var ob:Jump in map.obs.members) {
-					if (ob != null){
-						player.followPath(ob.my_path);
-					}
-				}
-			}
+			FlxG.collide(player, map.obs);
 			
-			//for each (var item:FlxSprite in map.ens.members) {
-			//	if (item != null){
-				//	FlxG.collide(player.roues, item);
-				//	FlxG.collide(player, item);
-			//	}
-			//}
+			/*for each (var item:FlxSprite in map.ens.members) {
+				if (item != null){
+					FlxG.collide(player.roues, item);
+					FlxG.collide(player, item);
+				}
+			}*/
 		}
 				
 	}

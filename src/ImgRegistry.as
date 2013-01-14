@@ -11,7 +11,7 @@ package
 	{
 		
 		
-		[Embed(source = '../assets/gfx/ld1.png')] public var ImgJump1:Class;
+		[Embed(source = '../assets/gfx/platform.png')] public var ImgJump1:Class;
 		public var assets:Array = new Array();
 		
 		public function ImgRegistry() 
