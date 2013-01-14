@@ -5,6 +5,7 @@ package
 	import org.flixel.FlxG;
 	import org.flixel.plugin.photonstorm.FlxVelocity;
 	import org.flixel.plugin.photonstorm.FlxCollision;
+	import org.flixel.FlxTimer;
 	
 	/**
 	 * Joueur
@@ -15,7 +16,10 @@ package
 		
 		[Embed(source = '../assets/gfx/avatar.png')] protected var ImgPlayer:Class;
 		public var pos:int = 0;
-		public var gravity:int = 30;
+		public var gravity:int = 300;
+		public var jump_height:int = -300;
+		public var speed:int = 5;
+		public var jumptime:FlxTimer;
 		
 		public function Player(xPos:int, yPos:int) 
 		{
@@ -34,25 +38,32 @@ package
 				y = FlxG.height - frameHeight;
 				velocity.y = 0;
 			}
-			else
+			else if ((jumptime != null) && (jumptime.finished == true)) {
 				velocity.y = gravity;
+				jumptime.destroy();
+				jumptime = null;
+			}
 				
 			
 			if (FlxG.keys.pressed("LEFT")) {
-				x--;
+				x -= speed;
 				play("walk");
 				facing = LEFT;
 			}
 			if (FlxG.keys.pressed("RIGHT")) {
-				x++;
+				x += speed;
 				play("walk");
 				facing = RIGHT;
 			}
-			if (FlxG.keys.pressed("UP")) {
-				velocity.y = -50;
+			if (FlxG.keys.justPressed("UP")) {
+				if ((jumptime == null) && (velocity.y == 0)) {
+					jumptime = new FlxTimer();
+					jumptime.start(0.5);
+					velocity.y = jump_height;
+				}
 			}
 			if (FlxG.keys.pressed("DOWN")) {
-				
+				y = FlxG.height - frameHeight;
 			}
 			if (!(FlxG.keys.any())) {
 				frame = 0;

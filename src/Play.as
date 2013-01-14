@@ -2,6 +2,7 @@ package
 {
 	import flash.utils.Timer;
 	import org.flixel.FlxGroup;
+	import org.flixel.FlxRect;
 	import org.flixel.FlxState;
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
@@ -40,7 +41,7 @@ package
 					item.y = background.sol.y - item.frameHeight;
 				}
 			}
-			//add(map.ens);
+			add(map.ens);
 			add(map.obs);
 			add(player);
 		}
@@ -48,13 +49,16 @@ package
 		override public function update():void {
 			super.update();
 			FlxG.collide(player, map.obs);
-			
-			/*for each (var item:FlxSprite in map.ens.members) {
-				if (item != null){
-					FlxG.collide(player.roues, item);
-					FlxG.collide(player, item);
+			FlxG.camera.setBounds(0, 0, background.frameWidth*2, background.frameHeight);
+			FlxG.worldBounds = new FlxRect(0, 0, background.frameWidth*2, background.frameHeight);
+			FlxG.camera.follow(player);
+			for each (var item:FlxSprite in map.ens.members) {
+				if ((item != null) && (FlxG.overlap(player, item))) {
+					player.jump_height = -500;
+					item.destroy();
+					item.exists = false;
 				}
-			}*/
+			}
 		}
 				
 	}
