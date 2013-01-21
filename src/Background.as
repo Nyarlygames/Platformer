@@ -13,20 +13,28 @@ package
 	public class Background extends FlxSprite 
 	{
 		public var sound:FlxSound;
-		public var sol:FlxSprite;
 		
-		 [Embed(source = '../assets/gfx/bg.png')] public var ImgBackground:Class;
+		 [Embed(source = '../assets/gfx/background1.png')] public var ImgBackground1:Class;
+		 [Embed(source = '../assets/gfx/background2.png')] public var ImgBackground2:Class;
+		 [Embed(source = '../assets/gfx/background3.png')] public var ImgBackground3:Class;
 		 [Embed(source = '../assets/gfx/sol.png')] public var ImgSol:Class;
-		public function Background() 
+		public function Background(id:int, scroll:int) 
 		{
-			super(0, FlxG.height, ImgBackground);
+			super(0, FlxG.height);
+			switch (id) {
+				case 1 :
+					loadGraphic(ImgBackground1);
+					break;
+				case 2 :
+					loadGraphic(ImgBackground2);
+					break;
+				case 3 :
+					loadGraphic(ImgBackground3);
+					break;
+			}
+			scrollFactor.x = scrollFactor.y = scroll;
 			y -= frameHeight;
-			sol = new FlxSprite(0, FlxG.height - 50, ImgSol);
-			
-			sol.makeGraphic(FlxG.width, 10, 0xaaFFFFFF, true);
-			sol.y -= sol.frameHeight;
-			sol.immovable = true;
-			//FlxScrollZone.add(this, new Rectangle(0, 0, this.width, this.height), -1, 0);
+			//FlxScrollZone.add(this, new Rectangle(0, 0, this.width, this.height), -scroll, 0);
 			/*sound = new FlxSound();
 			sound.loadStream("../assets/sfx/musiques/Shinshuu_Plains_I.mp3", true, true);
 			sound.play();*/

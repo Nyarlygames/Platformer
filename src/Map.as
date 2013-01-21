@@ -46,8 +46,11 @@ package
 							case "Tube":
 								ens.add(new TubeVert(en[1], en[2], speed));
 							break;
+							case "Bonus":
+								ens.add(new Bonus(en[1], en[2], speed));
+							break;
 							case "Jump":
-								obs.add(new Jump(en[1], en[2], en[3], speed));
+								obs.add(new Jump(en[1], en[2]));
 							break;
 							default:
 								ens.add(new Alien(en[1], en[2], en[3], speed));
