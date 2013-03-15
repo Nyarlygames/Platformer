@@ -36,6 +36,10 @@ package
 		
 		override public function update():void 
 		{
+			/* bugfix pour les collisions sur les côtés avec plateformes mobiles */
+			if ((velocity.x == 100) || (velocity.x == -100)) {
+				velocity.x = 0;
+			}
 			if ((y + frameHeight) > FlxG.height) {
 				y = FlxG.height - frameHeight;
 				notjumping = true;
