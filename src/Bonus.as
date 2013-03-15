@@ -15,7 +15,6 @@ package
 		{
 			super(xpos, ypos, ImgTube);
 			y -= frameHeight;
-		//	velocity.x = init;
 		}
 		
 	}

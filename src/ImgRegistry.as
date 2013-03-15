@@ -5,7 +5,7 @@ package
 
 	/**
 	 * ...
-	 * @author ...
+	 * @author  Paul FIAT
 	 */
 	public class ImgRegistry extends FlxObject 
 	{

@@ -7,7 +7,7 @@ package
 	
 	/**
 	 * Starting point of the game application
-	 * @author 
+	 * @author
 	 */
 	public class AITH extends FlxGame
 	{

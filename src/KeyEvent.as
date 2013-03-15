@@ -9,7 +9,7 @@ package
 	
 	/**
 	 * Event des touches
-	 * @author ...
+	 * @author Paul FIAT
 	 */
 	public class KeyEvent extends FlxObject
 	{

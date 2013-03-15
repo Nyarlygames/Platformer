@@ -7,7 +7,7 @@ package
 	 
 	/**
 	 * Menu
-	 * @author 
+	 * @author Paul FIAT
 	 */
 	public class Menu extends FlxState
 	{

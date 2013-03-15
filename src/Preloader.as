@@ -4,7 +4,7 @@ package
 	
 	/**
 	 * Preloader class
-	 * @author 
+	 * @author  Paul FIAT
 	 */
 	public class Preloader extends FlxPreloader
 	{

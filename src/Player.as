@@ -9,7 +9,7 @@ package
 	
 	/**
 	 * Joueur
-	 * @author ...
+	 * @author  Paul FIAT
 	 */
 	public class Player extends FlxSprite 
 	{

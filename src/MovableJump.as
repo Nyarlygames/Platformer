@@ -6,7 +6,7 @@ package
 	
 	/**
 	 * ...
-	 * @author ...
+	 * @author  Paul FIAT
 	 */
 	public class MovableJump extends FlxSprite 
 	{

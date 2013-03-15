@@ -23,7 +23,7 @@ package
 	import net.pixelpracht.tmx.TmxObjectGroup;
 	/**
 	 * Niveau
-	 * @author ...
+	 * @author  Paul FIAT
 	 */
 	public class Play extends FlxState 
 	{
@@ -31,7 +31,7 @@ package
 		[Embed(source = '../assets/gfx/decor_tileset.png')] protected var ImgTileSet:Class;
 		[Embed(source = '../assets/sfx/sfx.swf', symbol = 'ambient.wav')] public var Ambient:Class;
 		[Embed(source = '../assets/sfx/sfx.swf', symbol = 'bonus.wav')] public var SBonus:Class;
-		[Embed(source = '../assets/sfx/sfx.swf', symbol = 'star.wav')] public var Star:Class;
+		[Embed(source = '../assets/sfx/sfx.swf', symbol = 'star.wav')] public var StarSFX:Class;
 		public var player:Player;
 		public var map:Map;
 		public var background:Background = new Background(1,0);
@@ -55,8 +55,6 @@ package
 					item.y = FlxG.height - item.y - item.frameHeight;
 				}
 			}
-			//add(map.ens);
-			//add(map.obs);
 			var loader:URLLoader = new URLLoader();
 			loader.addEventListener(Event.COMPLETE,onTmxLoaded);
 			loader.load(new	URLRequest('../maps/maps2.tmx'));
@@ -81,7 +79,7 @@ package
 			for each(var object:TmxObject in group.objects) {
 				switch(object.type) {
 					case "Etoile":
-						map.ens.add (new TubeVert(object.x, object.y, 100));
+						map.ens.add (new Star(object.x, object.y, 100));
 						break;
 					case "Bonus":
 						map.ens.add (new Bonus(object.x, object.y, 100));
@@ -107,9 +105,9 @@ package
 			FlxG.camera.follow(player, 1);
 			for each (var item:FlxSprite in map.ens.members) {
 				if ((item != null) && (FlxG.overlap(player, item))) {
-					if (item is TubeVert) {
+					if (item is Star) {
 						FlxG.score += 10;
-						FlxG.play(Star);
+						FlxG.play(StarSFX);
 					}
 					else {
 						player.jump_height = -500;
